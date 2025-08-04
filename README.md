@@ -1,60 +1,90 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
-    <br>
-</p>
+# Bluewindow Brand Toplist
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](https://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+This repository contains a **Yii2 REST API** backend and a simple **frontend** for the Bluewindow Brand CRUD task. It is designed to run inside a Docker container for easy setup and consistent environments.
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+## Features
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+- **REST API** for managing brands (`create`, `read`, `update`, `delete`)
+- **Frontend** to list, create, and delete brands
+- **Dockerized** environment for PHP (Apache), MySQL, and Composer dependencies
+- Responsive design with Bootstrap grid and custom CSS
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
+## Tech Stack
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
+- PHP 8.1, Yii2 Framework (Advanced Template)
+- MySQL 5.7
+- Apache HTTP Server
+- Docker & Docker Compose
+- Vanilla JavaScript + Bootstrap 5 for frontend
 
-DIRECTORY STRUCTURE
--------------------
+## Getting Started
 
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-org/bluewindow-brand-toplist.git
+   cd bluewindow-brand-toplist
+   ```
+
+2. **Build and start containers**
+
+   ```bash
+   docker-compose up -d --build
+   ```
+
+   This will start two services:
+
+   - `app`: PHP 8.1 + Apache, serving both frontend and backend
+   - `mysql`: MySQL 5.7 database
+
+3. **Run migrations (if any)**
+
+   If you have migrations set up, apply them:
+
+   ```bash
+   docker exec -it bluewindow_brand_toplist_app_1 bash
+   ./yii migrate --interactive=0
+   exit
+   ```
+
+4. **Access the application**
+
+   - Frontend UI: [http://localhost:8080/](http://localhost:8080/)
+   - API endpoint: [http://localhost:8080/api/brand](http://localhost:8080/api/brand)
+
+## API Endpoints
+
+| Method | Endpoint          | Description         |
+| ------ | ----------------- | ------------------- |
+| GET    | `/api/brand`      | List all brands     |
+| GET    | `/api/brand/{id}` | View a single brand |
+| POST   | `/api/brand`      | Create a new brand  |
+| PATCH  | `/api/brand/{id}` | Update an existing  |
+| DELETE | `/api/brand/{id}` | Delete a brand      |
+
+### Example: Create a Brand
+
+```bash
+curl -X POST http://localhost:8080/api/brand \
+  -H "Content-Type: application/json" \
+  -d '{"brand_name":"Example","brand_image":"https://...","brand_rating":4,"country_code":"US"}'
 ```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-```
+
+## Frontend
+
+- A **form** to add new brands
+- A **list** of existing brands with their rating and country
+- **Delete** buttons for each brand
+
+Just navigate to [http://localhost:8080/](http://localhost:8080/) and interact with the form.
+
+## Changelog
+
+### [1.0.2] - 2025-08-04
+- Docker container
+
+### [1.0.1] - 2025-08-04
+- Brand - api + frontend
+
+### [1.0.0] - 2025-08-04
+- Initializing repo
