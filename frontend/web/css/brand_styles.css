@@ -1,0 +1,169 @@
+#create-form {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-top: 1.5rem;
+}
+
+#create-form input {
+    padding: 7px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.brand-table__header {
+    display: grid;
+    grid-template-columns: 60px 2fr 1fr 1fr 100px;
+    background: #2c3e50;
+    color: #ecf0f1;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    align-items: center;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Data rows */
+.brand-row {
+    display: grid;
+    grid-template-columns: 60px 2fr 1fr 1fr 100px;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.brand-row:nth-child(even) {
+    background: #fafafa;
+}
+
+.brand-row:hover {
+    background: #f0f8ff;
+}
+
+/* Columns */
+.col-rank {
+    text-align: center;
+    font-weight: bold;
+}
+
+.col-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.col-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.col-name {
+    font-weight: 600;
+}
+
+.col-rating {
+    text-align: center;
+}
+
+.col-bonus {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.col-actions {
+    text-align: center;
+}
+.star {
+    font-size: 1rem;
+    /* size your stars */
+    color: #ddd;
+    /* empty-star color */
+    margin-right: 2px;
+}
+
+.star.filled {
+    color: #f1c40f;
+    /* filled-star color */
+}
+
+/* Buttons */
+.btn--primary {
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn--delete {
+    background: transparent;
+    color: #c0392b;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    /* Hide the header row */
+    .brand-table__header {
+        display: none;
+    }
+
+    /* Make each row a card */
+    .brand-row {
+        display: block;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Label + value pairs */
+    .brand-row>div {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.25rem 0;
+    }
+
+    .brand-row .col-rank:before {
+        content: "Rank";
+        font-weight: 600;
+    }
+
+    .brand-row .col-logo:before {
+        content: "Brand";
+        font-weight: 600;
+    }
+
+    .brand-row .col-rating:before {
+        content: "Rating";
+        font-weight: 600;
+    }
+
+    .brand-row .col-bonus:before {
+        content: "Country";
+        font-weight: 600;
+    }
+
+    .brand-row .col-actions:before {
+        content: "Actions";
+        font-weight: 600;
+    }
+
+    /* Logo + name: stack horizontally */
+    .col-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Center the delete button */
+    .col-actions {
+        text-align: right;
+    }
+}
