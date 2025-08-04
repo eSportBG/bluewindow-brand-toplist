@@ -10,7 +10,6 @@ use common\models\Brand;
 class BrandController extends ActiveController
 {
     public $modelClass = Brand::class;
-    public $enableCsrfValidation = false;
 
     public function actions(): array
     {
@@ -36,8 +35,7 @@ class BrandController extends ActiveController
     public function actionCreate()
     {
         $body = Yii::$app->getRequest()->getBodyParams();
-        Yii::info($body, __METHOD__); // logs the array to runtime/logs/app.log
-        // … rest of create logic …
+        Yii::info($body, __METHOD__);
     }
 
 }
