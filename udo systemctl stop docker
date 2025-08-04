@@ -1,0 +1,20 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-08-04 03:40:09 EEST; 12min ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 172195 (dockerd)
+      Tasks: 21
+     Memory: 32.4M
+     CGroup: /system.slice/docker.service
+             └─172195 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+авг 04 03:40:09 steven systemd[1]: Starting Docker Application Container Engine...
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.186953315+03:00" level=info msg="Starting up"
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.187666482+03:00" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.conf"
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.261577282+03:00" level=info msg="Loading containers: start."
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.392118365+03:00" level=info msg="Loading containers: done."
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.403297293+03:00" level=info msg="Docker daemon" commit="26.1.3-0ubuntu1~20.04.1+esm1" containerd-snapshotter=false storage-driver=overlay2 version=26.1.3
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.403487059+03:00" level=info msg="Daemon has completed initialization"
+авг 04 03:40:09 steven dockerd[172195]: time="2025-08-04T03:40:09.432197088+03:00" level=info msg="API listen on /run/docker.sock"
+авг 04 03:40:09 steven systemd[1]: Started Docker Application Container Engine.
